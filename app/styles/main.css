@@ -1,0 +1,20 @@
+.active-tasks  {
+	margin: 0 auto;
+	border: 1px solid gray;
+	width: 800px;
+}
+
+.task-container {
+	margin: 0 auto;
+	width: 800px;
+}
+
+.nav-item {
+	color: #FFFFFF;
+}
+
+.navbar {
+	margin: 0 auto;
+	width: 800px;
+}
+

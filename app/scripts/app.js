@@ -7,10 +7,13 @@
 			});
 
 		$stateProvider
-			.state('home', {
+			.state('active', {
 				url: '/',
-				controller: 'HomeCtrl as home',
-				templateUrl:'/templates/home.html'
+				templateUrl:'/templates/activeTasks.html'
+			})
+			.state('completed', {
+				url: '/completed',
+				templateUrl: '/templates/completedTasks.html'
 			});
 	}
 	angular
