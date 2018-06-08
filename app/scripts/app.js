@@ -9,6 +9,7 @@
 		$stateProvider
 			.state('active', {
 				url: '/',
+				controller: 'ActiveCtrl as active',
 				templateUrl:'/templates/activeTasks.html'
 			})
 			.state('completed', {

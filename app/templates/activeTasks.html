@@ -1,11 +1,8 @@
 <div class="container">
-	
-	<nav class="navbar navbar-dark bg-primary">
-		<a class="nav-item nav-link" ui-sref="active">My Active Tasks</a>
-	    <a class="nav-item nav-link" ui-sref="completed">Completed Tasks</a>
-
-	</nav>
 	<div class="task-container">
-		<h1>Some tasks should go here</h1>
+		<h1>Active Tasks</h1>
+		<ul class="task-list">
+			<li ng-repeat="task in tasks">{{task.item}}</li>
+		</ul>
 	</div>
 </div>
