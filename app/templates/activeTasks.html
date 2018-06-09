@@ -1,8 +1,13 @@
 <div class="container">
-	<div class="task-container">
+	<div ng-controller="ActiveCtrl" class="task-container">
 		<h1>Active Tasks</h1>
-		<ul class="task-list">
-			<li ng-repeat="task in tasks">{{task.item}}</li>
-		</ul>
+		<div ng-repeat="task in tasks">
+			<label>
+				<input id="customCheck" type="checkbox" ng-model="task.Selected" />
+				{{task.item}}
+			</label>
+
+		</div>
+		<input type="button" value="Get" ng-click="getCompleted()" />
 	</div>
 </div>
