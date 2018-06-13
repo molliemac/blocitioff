@@ -1,5 +1,5 @@
 (function() {
-	function config($locationProvider, $stateProvider) {
+	function config($stateProvider, $locationProvider) {
 		$locationProvider
 			.html5Mode({
 				enabled: true,
@@ -7,16 +7,18 @@
 			});
 
 		$stateProvider
-			.state('active', {
+		.state('home', {
 				url: '/',
-				controller: 'ActiveCtrl as active',
-				templateUrl:'/templates/activeTasks.html'
+				controller: 'HomeCtrl as home',
+				templateUrl: '/templates/home.html'
 			})
-			.state('completed', {
-				url: '/completed',
-				templateUrl: '/templates/completedTasks.html'
+			.state('list', {
+				url: '/list',
+				controller: 'ListCtrl as list',
+				templateUrl:'/templates/list.html'
 			});
-	}
+
+	};
 	angular
 		.module('blocItOff', ['ui.router', 'firebase'])
 		.config(config);

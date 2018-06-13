@@ -1,5 +1,5 @@
 (function() {
-	function ActiveCtrl($scope) {
+	function ActiveCtrl($scope, ListService, $rootScope) {
 		$scope.tasks=[
 			{item:'Go to grocery store'}, 
 			{item: 'Pick up bridal shower gift'}, 
@@ -20,5 +20,5 @@
 
 	angular
 		.module('blocItOff')
-		.controller('ActiveCtrl', ActiveCtrl);
+		.controller('ActiveCtrl', ['ListService', '$scope', '$rootScope', ActiveCtrl]);
 })();
