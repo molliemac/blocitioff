@@ -1,10 +1,7 @@
 (function() {
-	function config($stateProvider, $locationProvider) {
-		$locationProvider
-			.html5Mode({
-				enabled: true,
-				requireBase: false
-			});
+	function config($urlRouterProvider, $stateProvider, $locationProvider) {
+
+		$urlRouterProvider.otherwise('/');
 
 		$stateProvider
 		.state('home', {
@@ -13,7 +10,7 @@
 				templateUrl: '/templates/home.html'
 			})
 			.state('list', {
-				url: '/list',
+				url: '/list/:title',
 				controller: 'ListCtrl as list',
 				templateUrl:'/templates/list.html'
 			});

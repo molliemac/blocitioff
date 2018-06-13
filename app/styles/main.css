@@ -27,3 +27,16 @@ label {
 	text-align: center;
 }
 
+.lists li .clickable:hover {
+  cursor: pointer;
+}
+
+.backButton {
+  color: #006295;
+  padding-top: 20px;
+}
+
+.backButton:hover {
+  cursor: pointer;
+}
+
