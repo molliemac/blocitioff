@@ -6,12 +6,16 @@
 		  <button class='inputButton' ng-click='createItem()'> + </button>
 		</div>
 		<br><br>
-		<ul class='lists'>
-		  <li ng-repeat='item in lists[listTitle]'>
-		    <span class='item'> {{ item }} </span>
-		    <button ng-click='deleteItem(item)'>x</button>
-		  </li>
-		</ul>	
+		<div class="checkbox" ng-repeat='item in lists[listTitle]'>
+		    <input type="checkbox" ng-model="completedList" value="{{item}}" ng-change="change(completedList, item)"><label>{{item}} </label>
+		</div>
+		  <!-- <p>{{completedList}}</p> -->
+		  <br><br>
+		  <h3>Completed Tasks - Great job!</h3>
+		  <ul class="completed" ng-repeat='item in completedList'>
+		    <li>{{item}} </li>
+		</ul>
+
 	</div>
 </div>
 

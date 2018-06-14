@@ -6,4 +6,5 @@ angular.module('blocItOff')
 	this.saveList = function(list) {
 		this.list = list;
 	};
+
 });

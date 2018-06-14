@@ -19,7 +19,7 @@
 }
 
 label {
-	display: block !important;
+	display: inline-block ;
 }
 
 .form {
@@ -38,5 +38,14 @@ label {
 
 .backButton:hover {
   cursor: pointer;
+}
+
+.done {
+  text-decoration: line-through;
+  color: grey;
+}
+
+.completed li {
+	color: black;
 }
 
