@@ -6,13 +6,18 @@ angular.module('blocItOff')
 	$scope.lists = ListService.getList();
 	$scope.listTitle = $stateParams.title;
 	$scope.completedList = [];
+	$scope.item = {
+		description: "", 
+		priority: ['High', 'Medium', 'Low'],
+		state: "Active"
+	};
 
-	$scope.createItem = function() {
-		if ($scope.lists[$scope.listTitle].indexOf($scope.item) === -1 && $scope.item) {
-			$scope.lists[$scope.listTitle].push($scope.item);
-			ListService.saveList($scope.lists);
-		}
-		$scope.item = '';
+	$scope.createItem = function(item) {
+		$scope.item.push({
+			description: "",
+			state: "Active"
+		});
+		
 		document.getElementById('todoItem').focus();
 	};
 
@@ -29,9 +34,9 @@ angular.module('blocItOff')
 	// Adding and removing items from completedList when checked and unchecked
 	$scope.change = function(check, value) {
 		if (check) {
-			$scope.completedList.push(value);
+			$scope.completedList.push(value.description);
 		} else {
-			$scope.completedList.splice($scope.completedList.indexOf(value), 1);
+			$scope.completedList.splice($scope.completedList.indexOf(value.description), 1);
 		}
 	};
 

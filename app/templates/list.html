@@ -2,12 +2,12 @@
 	<div class="task-container">
 		<h1> <i class='fa fa-arrow-left backButton' ng-click='goBack()'></i> {{ listTitle.toUpperCase() }}</h1>
 		<div class='form'>
-		  <input type='text' id='todoItem' class='inputs' ng-model='item' placeholder='Add an Item'>
+		  <input type='text' id='todoItem' class='inputs' ng-model='item.description' placeholder='Add an Item'>
 		  <button class='inputButton' ng-click='createItem()'> + </button>
 		</div>
 		<br><br>
 		<div class="checkbox" ng-repeat='item in lists[listTitle]'>
-		    <input type="checkbox" ng-model="completedList" value="{{item}}" ng-change="change(completedList, item)"><label>{{item}} </label>
+		    <input type="checkbox" ng-model="completedList" value="{{item}}" ng-change="change(completedList, item)"><label>{{item.description}} | {{item.status}}</label>
 		</div>
 		  <!-- <p>{{completedList}}</p> -->
 		  <br><br>

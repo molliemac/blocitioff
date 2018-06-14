@@ -23,13 +23,12 @@
      <!-- AngularUI Router -->
      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.min.js"></script>
 
-     <!-- FireBase -->
-     <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
-     <!-- AngularFire -->
-     <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+     <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
 
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
 
-	<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
 	<script>
 	  // Initialize Firebase
 	  var config = {
@@ -41,15 +40,15 @@
 	    messagingSenderId: "830088805876"
 	  };
 	  firebase.initializeApp(config);
+
 	</script>
+
 
      <!-- Application Files -->
      <script src="/scripts/app.js"></script>
      <script src="/scripts/controllers/ListCtrl.js"></script>
      <script src="/scripts/controllers/HomeCtrl.js"></script>
-     <script src="/scripts/controllers/CompletedItemCtrl.js"></script>
-     <script src="/scripts/ListService.js"></script>
-     <script src="/scripts/tasks.js"></script>
+     <script src="/scripts/controllers/TodoCtrl.js"></script>
      
 </body>
 </html>

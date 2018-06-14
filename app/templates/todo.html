@@ -1,0 +1,105 @@
+<div class="container">
+	<div class="task-container">
+	<form name="todoForm">
+
+    <div>
+        <input type="text"
+               name="todoNameField"
+               ng-model="todoName"
+               placeholder="Add new task (min 3 chars)"
+               class="form-control"
+               ng-keyup="($event.keyCode == 13 && todoName.length > 2) ? addItem() : return"
+               style="margin-bottom: 10px"
+                />
+
+        <button ng-click="addTodo()"
+                ng-hide="myForm.todoNameField.$invalid"
+                class="btn btn-primary" type="button"
+                >Save Todo
+        </button>
+    </div>
+
+</form>
+
+    <hr />
+
+<!--TODO LIST-->
+
+<h4 ng-show="(todos | filter:{status: 'Pending'}).length">Pending</h4>
+
+<div ng-repeat="todo in todos | filter:{status: 'Pending'}"
+     class="row list-item">
+
+    <div class="col-md-6">
+
+        <!--TODO LABEL-->
+        <span>{{todo.name}}</span>
+    </div>
+    <div class="col-md-6 text-right">
+        <!--START TODO BUTTON-->
+        <a class="btn btn-warning"
+           ng-click="startTodo($index, todo)">
+            Start
+        </a>
+
+        <!--DELETE TODO BUTTON-->
+        <a class="btn btn-danger"
+           ng-click="removeTodo($index, todo)">
+            <i class="glyphicon glyphicon-remove"></i> Remove
+        </a>
+
+    </div>
+
+</div>
+
+<h4 ng-show="(todos | filter:{status: 'In Progress'}).length">In Progress</h4>
+
+<div ng-repeat="todo in todos | filter:{status: 'In Progress'}"
+     class="row list-item bg-warning">
+
+    <div class="col-md-6">
+
+        <!--TODO LABEL-->
+        <span>{{todo.name}}</span>
+    </div>
+    <div class="col-md-6 text-right">
+        <!--COMPLETED TODO BUTTON-->
+        <a class="btn btn-primary"
+           ng-click="completeTodo($index, todo)">
+            <i class="glyphicon glyphicon-ok"></i> Complete
+        </a>
+
+        <!--DELETE TODO BUTTON-->
+        <a class="btn btn-danger"
+           ng-click="removeTodo($index, todo)">
+            <i class="glyphicon glyphicon-remove"></i> Remove
+        </a>
+
+    </div>
+
+</div>
+
+<h4 ng-show="(todos | filter:{status: 'Complete'}).length">Complete</h4>
+
+<div ng-repeat="todo in todos | filter:{status: 'Complete'}"
+     class="row list-item bg-success">
+
+    <div class="col-md-6">
+
+        <!--TODO LABEL-->
+        <span>{{todo.name}}</span>
+    </div>
+    <div class="col-md-6 text-right">
+
+        <!--DELETE TODO BUTTON-->
+        <a class="btn btn-danger"
+           ng-click="removeTodo($index, todo)">
+            <i class="glyphicon glyphicon-remove"></i> Remove
+        </a>
+
+    </div>
+
+</div>
+
+</div>
+</div>

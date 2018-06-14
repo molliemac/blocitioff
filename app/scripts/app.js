@@ -5,13 +5,18 @@
 
 		$stateProvider
 		.state('home', {
-				url: '/',
-				controller: 'HomeCtrl as home',
+				url: '/home',
+				controller: 'HomeCtrl',
 				templateUrl: '/templates/home.html'
+			})
+		.state('todo', {
+				url: '/',
+				controller: 'TodoCtrl',
+				templateUrl: '/templates/todo.html'
 			})
 			.state('list', {
 				url: '/list/:title',
-				controller: 'ListCtrl as list',
+				controller: 'ListCtrl',
 				templateUrl:'/templates/list.html'
 			});
 
