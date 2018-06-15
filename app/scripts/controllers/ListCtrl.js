@@ -1,31 +1,59 @@
+// angular.module('blocItOff')
+// .controller('ListCtrl', ['$scope', '$location', '$stateParams', '$rootScope', '$state', '$firebaseArray', 
+// 	function($scope, $location, $stateParams, $rootScope, $state, $firebaseArray) {
+
+// 	var listsRef = firebase.database().ref();
+
+// 	$scope.lists = $firebaseArray(listsRef);
+
+// 	$scope.createList = function () {
+
+// 		$scope.lists.$add({
+// 			name: $scope.listName
+// 		});
+
+// 		$scope.listName = "";
+// 		$location.path('/{listName}');
+// 	};
+
+	
+
+
+// 	$scope.goBack = function() {
+// 		$state.go($rootScope.home);
+// 	};
+
+// 	// Adding and removing items from completedList when checked and unchecked
+// 	$scope.change = function(check, value) {
+// 		if (check) {
+// 			$scope.completedList.push(value.description);
+// 		} else {
+// 			$scope.completedList.splice($scope.completedList.indexOf(value.description), 1);
+// 		}
+// 	};
+
+// }]);
+
 angular.module('blocItOff')
-.controller('ListCtrl', ['$scope', '$stateParams', '$rootScope', '$state', 'ListService', 
-	function($scope, $stateParams, $rootScope, $state, ListService) {
+.controller('ListCtrl', ['$scope', '$location', '$stateParams', '$rootScope', '$state', '$firebaseArray', 
+	function($scope, $location, $stateParams, $rootScope, $state, $firebaseArray) {
 
-	document.getElementById('todoItem').focus();
-	$scope.lists = ListService.getList();
-	$scope.listTitle = $stateParams.title;
-	$scope.completedList = [];
-	$scope.item = {
-		description: "", 
-		priority: ['High', 'Medium', 'Low'],
-		state: "Active"
-	};
+	var listsRef = firebase.database().ref();
 
-	$scope.createItem = function(item) {
-		$scope.item.push({
-			description: "",
-			state: "Active"
+	$scope.lists = $firebaseArray(listsRef);
+
+	$scope.createList = function () {
+
+		$scope.lists.$add({
+			name: $scope.listName
 		});
-		
-		document.getElementById('todoItem').focus();
+
+		$scope.listName = "";
+		$rootScope.home = 'home';
+		$location.path('/list/' + listName);
 	};
 
-	// $scope.deleteItem = function(item) {
-	// 	var currentList = $scope.lists[$scope.listTitle];
-	// 	currentList.splice(currentList.indexOf(item), 1);
-	// 	ListService.saveList($scope.lists);
-	// };
+	
 
 	$scope.goBack = function() {
 		$state.go($rootScope.home);

@@ -1,22 +1,55 @@
 <div class="container">
 	<div class="task-container">
 		<h1> <i class='fa fa-arrow-left backButton' ng-click='goBack()'></i> {{ listTitle.toUpperCase() }}</h1>
-		<div class='form'>
-		  <input type='text' id='todoItem' class='inputs' ng-model='item.description' placeholder='Add an Item'>
-		  <button class='inputButton' ng-click='createItem()'> + </button>
-		</div>
-		<br><br>
-		<div class="checkbox" ng-repeat='item in lists[listTitle]'>
-		    <input type="checkbox" ng-model="completedList" value="{{item}}" ng-change="change(completedList, item)"><label>{{item.description}} | {{item.status}}</label>
-		</div>
-		  <!-- <p>{{completedList}}</p> -->
-		  <br><br>
-		  <h3>Completed Tasks - Great job!</h3>
-		  <ul class="completed" ng-repeat='item in completedList'>
-		    <li>{{item}} </li>
-		</ul>
+		<form name="listForm">
 
-	</div>
+    <div>
+        <input type="text"
+               name="listNameField"
+               ng-model="listName"
+               placeholder="Create a New Todo List"
+               class="form-control"
+                />
+
+        <button ng-click="createList()"
+                ng-hide="myForm.listNameField.$invalid"
+                class="btn btn-primary" type="button"
+                >Create My List
+        </button>
+    </div>
+
+</form>
+
+<!--MAIN LIST VIEW-->
+
+<h4>My Lists</h4>
+
+<div ng-repeat="list in lists"
+     class="row list-item">
+
+    <div class="col-md-6">
+
+        <!--TODO LABEL-->
+        <span>{{list.name}}</span>
+    </div>
+    <div class="col-md-6 text-right">
+        <!--START TODO BUTTON-->
+        <a class="btn btn-warning"
+           ng-click="startTodo($index, todo)">
+            <i class="far fa-hourglass"></i> Start
+        </a>
+
+        <!--DELETE TODO BUTTON-->
+        <a class="btn btn-danger"
+           ng-click="removeTodo($index, todo)">
+            <i class="far fa-times-circle"></i> Remove
+        </a>
+
+    </div>
+
+</div>
+
+		
 </div>
 
 

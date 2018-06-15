@@ -15,7 +15,7 @@
 				templateUrl: '/templates/todo.html'
 			})
 			.state('list', {
-				url: '/list/:title',
+				url: '/list/:listName',
 				controller: 'ListCtrl',
 				templateUrl:'/templates/list.html'
 			});
