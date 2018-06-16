@@ -22,4 +22,89 @@
     border: 1px solid #ccc;
 }
 
+/*Sidebar*/
+
+.sidebar {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 20%;
+    height: 100%;
+    background-color: lightgray;
+    z-index: 1;
+}
+
+.sidebar-header {
+    padding-left: 10px;
+    margin-bottom: 5px;
+    display: table;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.sidebar-header .new-room {
+    margin: 0 5px;
+}
+
+.sidebar-title {
+    display: inline-block;
+    padding-right: 15px;
+}
+
+.sidebar .room-name {
+    padding-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.sidebar .room-name:hover {
+    cursor: pointer;
+}
+
+/*Messages*/
+
+.todos {
+    position: fixed;
+    top: 0px;
+    left: 250px;
+    width: 80%;
+    height: 100%;
+    background-color: white;
+    z-index: 1;
+    overflow: scroll;
+}
+
+
+.todos-body {
+    padding-right: 10px;
+}
+
+.todos-body .username {
+    font-weight: bold;
+}
+
+.todos-body .timestamp {
+    float: right;
+    padding-right: 100px;
+}
+
+.todos-body .username .timestamp {
+    display: inline-block;
+}
+
+.todos-body .user-message {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.message-field {
+    bottom: 0;
+    padding-bottom: 5px;
+    position: fixed;
+}
+
+.message-box {
+    width: 800px;
+}
 

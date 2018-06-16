@@ -1,0 +1,18 @@
+<form name="listForm">
+
+    <div>
+        <input type="text"
+               name="listNameField"
+               ng-model="listName"
+               placeholder="Create a New Todo List"
+               class="form-control"
+                />
+
+        <button ng-click="createList()"
+                ng-hide="myForm.listNameField.$invalid"
+                class="btn btn-primary" type="button"
+                >Create My List
+        </button>
+    </div>
+
+</form>

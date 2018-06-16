@@ -1,27 +1,24 @@
 angular.module('blocItOff')
-.controller('HomeCtrl', ['$scope', '$location', '$rootScope', 'ListService', function($scope, $location, $rootScope, ListService) {
+.controller('HomeCtrl', ['$scope', 'List', 'Todo', '$uibModal', function($scope, List, Todo, $uibModal) {
 
-	document.getElementById('todoTitle').focus();
-		$scope.lists = ListService.getList();
+	$scope.lists = List.all;
+	$scope.currentList = null;
+	$scope.todos = null;
 
-		$scope.createList = function () {
-			if ($scope.viewTitle) {
-				$scope.lists[$scope.viewTitle] = [];
-				$scope.viewTitle = '';
-				ListService.saveList ($scope.lists);
-			}
-			document.getElementById('todoTitle').focus();
-		};
+	$scope.open = function () {
+		$uibModal.open({
+			templateUrl: 'templates/modal.html',
+			controller: 'ModalCtrl'
+		})
+	}
 
-		$scope.gotoList = function(title) {
-			$rootScope.home = 'home';
-			$location.path('/list/' + title);
-		};
 
-		$scope.deleteList = function(title) {
-			delete $scope.lists[title];
-			ListService.saveList($scope.lists);
-		};
+	$scope.setCurrentList = function(list) {
+		$scope.currentList = list;
+		$scope.todos = Todo.getByListId($scope.currentList.$id);
+	}
+
+	return $scope.lists;
 
 }]);
 

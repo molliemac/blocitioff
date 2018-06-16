@@ -5,15 +5,15 @@
 
 		$stateProvider
 		.state('home', {
-				url: '/home',
+				url: '/',
 				controller: 'HomeCtrl',
 				templateUrl: '/templates/home.html'
 			})
-		.state('todo', {
-				url: '/',
-				controller: 'TodoCtrl',
-				templateUrl: '/templates/todo.html'
-			})
+		// .state('todo', {
+		// 		url: '/',
+		// 		controller: 'TodoCtrl',
+		// 		templateUrl: '/templates/todo.html'
+		// 	})
 			.state('list', {
 				url: '/list/:listName',
 				controller: 'ListCtrl',
@@ -22,6 +22,6 @@
 
 	};
 	angular
-		.module('blocItOff', ['ui.router', 'firebase'])
+		.module('blocItOff', ['ui.router', 'firebase', 'ui.bootstrap'])
 		.config(config);
 })();

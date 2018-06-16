@@ -1,15 +1,30 @@
-<div class="container">
-	<div class="task-container">
-	<div class='form'>
-  <input type='text' id='todoTitle' class='inputs' ng-model='viewTitle' placeholder='Todo list title'>
-  <button class='inputButton' ng-click='createList()'> + </button>
+<div class="sidebar">
+    <div class="sidebar-header">
+        <h1 class="sidebar-title">Just (To)Do It.</h1>
+      <div ng-controller="ModalCtrl as modal"><button type="button" class="new-list" ng-click="openModal()">New List</button></div>
+    </div>
+    <div class="sidebar-body" ng-repeat="list in lists">
+        <p class="room-name" ng-click="setCurrentList(list)">{{ list.$value }}</p>
+    </div>
 </div>
-<br><br>
-<ul class='lists'>
-  <li ng-repeat='(key, value) in lists'>
-    <span class='item clickable' ng-click='gotoList(key)'> {{ key }} ({{ value.length }})</span>
-    <button id='deleteList' ng-click='deleteList(key)'>x</button>
-  </li>
-</ul>
+
+<div class="todos">
+    <div class="todos-header">
+        <h3>{{ currentList.$value }}</h3>
+        
+    </div>
+    <div class="todos-body" ng-repeat="todo in todos | filter:{status: 'Complete'}" class="row list-item bg-success">
+        <div class="col-md-6">
+<span>{{todo.name}}</span>
+        <!--TODO LABEL-->
+        
+    </div>
+    <div class="col-md-6 text-right">
+        <!--DELETE TODO BUTTON-->
+        <a class="btn btn-danger"
+           ng-click="removeTodo($index, todo)">
+            <i class="far fa-times-circle"></i> Remove
+        </a>
+    </div>
 </div>
-</div>
+
