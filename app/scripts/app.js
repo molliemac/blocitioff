@@ -1,27 +1,19 @@
 (function() {
-	function config($urlRouterProvider, $stateProvider, $locationProvider) {
+  function config($stateProvider, $locationProvider) {
+    $locationProvider
+        .html5Mode({
+          enabled: true,
+          requireBase: false
+        });
+    $stateProvider
+        .state('lists', {
+          url: '/',
+          controller: 'ListCtrl',
+          templateUrl: '/templates/home.html'
+        });
+  }
 
-		$urlRouterProvider.otherwise('/');
-
-		$stateProvider
-		.state('home', {
-				url: '/',
-				controller: 'HomeCtrl',
-				templateUrl: '/templates/home.html'
-			})
-		// .state('todo', {
-		// 		url: '/',
-		// 		controller: 'TodoCtrl',
-		// 		templateUrl: '/templates/todo.html'
-		// 	})
-			.state('list', {
-				url: '/list/:listName',
-				controller: 'ListCtrl',
-				templateUrl:'/templates/list.html'
-			});
-
-	};
-	angular
-		.module('blocItOff', ['ui.router', 'firebase', 'ui.bootstrap'])
-		.config(config);
+  angular
+      .module('blocItOff', ['ui.router', 'firebase'])
+      .config(config);
 })();

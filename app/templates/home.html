@@ -1,30 +1,28 @@
-<div class="sidebar">
-    <div class="sidebar-header">
-        <h1 class="sidebar-title">Just (To)Do It.</h1>
-      <div ng-controller="ModalCtrl as modal"><button type="button" class="new-list" ng-click="openModal()">New List</button></div>
-    </div>
-    <div class="sidebar-body" ng-repeat="list in lists">
-        <p class="room-name" ng-click="setCurrentList(list)">{{ list.$value }}</p>
-    </div>
-</div>
+<div class="container">
+	<ul>
+		<li>
+			<a href="#" ng-repeat="list in lists" ng-click="setCurrentList(list)">{{ list.$value }}</a>
+		</li>
+	</ul>
+	<br><br>
+		<button type="button" class="btn btn-dark" ng-click="toggle()">Add a New List</button>
 
-<div class="todos">
-    <div class="todos-header">
-        <h3>{{ currentList.$value }}</h3>
-        
-    </div>
-    <div class="todos-body" ng-repeat="todo in todos | filter:{status: 'Complete'}" class="row list-item bg-success">
-        <div class="col-md-6">
-<span>{{todo.name}}</span>
-        <!--TODO LABEL-->
-        
-    </div>
-    <div class="col-md-6 text-right">
-        <!--DELETE TODO BUTTON-->
-        <a class="btn btn-danger"
-           ng-click="removeTodo($index, todo)">
-            <i class="far fa-times-circle"></i> Remove
-        </a>
-    </div>
-</div>
+		<form class="myList" ng-submit="createList()" ng-show="myList">
+	<input class="form-control" placeholder="Create a List" ng-model="newList">
 
+	<input type="submit" id="submit" value="Submit" />
+	<h4>{{ newList }}</h4>
+</form>
+
+<div class="row">
+	<div class="list-container">
+		<h3>{{ currentList.$value }}</h3>
+		<div ng-repeat="todo in todos">
+			{{ todo.description }} | {{ todo.listId }}
+		</div>
+	</div>
+	</div>
+
+
+	
+</div>

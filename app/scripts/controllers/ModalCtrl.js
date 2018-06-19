@@ -1,24 +1,25 @@
 (function() {
-    function ModalCtrl($scope, $uibModal) {
+  function ModalCtrl($scope, $uibModalInstance){
+    $scope.text = "";
 
-    	$scope.openModal = function () {
-    		$uibModal.open({
-    			templateUrl: 'templates/modal.html',
-    			controller: function ($scope, $uibModalInstance) {
-    				$scope.ok = function () {
-    					$uibModalInstance.close();
-    				};
+    $scope.ok = function(){
+        $uibModalInstance.close({'task': $scope.text, 'priority': $scope.priority.selectedOption.setting});
+    };
 
-    				$scope.cancel = function () {
-    					$uibModalInstance.dismiss('cancel');
-    				};
-    			}
-    		})
-    	}
-        
-    }
+    $scope.cancel = function() {
+        $uibModalInstance.dismiss('cancel');
+    };
+    $scope.priority = {
+      availableOptions: [
+        {id: '1', setting: 'High'},
+        {id: '2', setting: 'Medium'},
+        {id: '3', setting: 'Low'}
+      ],
+      selectedOption: {id: '3', setting: 'Low'} //This sets the default value of the select in the ui
+      };
+  }
 
-    angular
-        .module('blocItOff')
-        .controller('ModalCtrl', ['$scope', '$uibModal', ModalCtrl]);
+  angular
+    .module('blocItOff')
+    .controller('ModalCtrl', ['$scope', '$uibModal', 'List', 'Task', ModalCtrl]);
 })();

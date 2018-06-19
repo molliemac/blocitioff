@@ -6,15 +6,12 @@
 
     List.all = lists;
 
-    List.add = function(list) {
-    	// firebase $add method
-      lists.$add(list);
-    	
-    };
+    List.addList = function (newList) {
+      lists.$add(newList);
+    }
 
     return List;
-  };
-
+  }
 
   angular
     .module('blocItOff')
