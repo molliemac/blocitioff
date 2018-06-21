@@ -1,3 +1,17 @@
 ul li a {
   display: block;
+  padding: 10px 0;
+}
+
+ul {
+	list-style-type: none;
+}
+
+#sidebar {
+	background-color: #eeeeee;
+	height: 100vh;
+}
+
+ul.todos {
+	list-style-type: disc;
 }

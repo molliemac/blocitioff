@@ -10,7 +10,13 @@
           url: '/',
           controller: 'ListCtrl',
           templateUrl: '/templates/home.html'
-        });
+        }),
+    $stateProvider
+      .state('newList', {
+        url: '/new-list',
+        controller: 'ListCtrl',
+        templateUrl: '/templates/newList.html'
+      });
   }
 
   angular
