@@ -1,5 +1,5 @@
 (function() {
-  function ListCtrl($scope, List, Todo) {
+  function ListCtrl($scope, $uibModal, List, Todo) {
     $scope.lists = List.all;
     $scope.myList = false;
     $scope.currentList = null;
@@ -33,9 +33,22 @@
       console.log('NEW', newTodo);
     }
 
+    $scope.open = function() {
+    var modalInstance = $uibModal.open({
+      animation: true,
+      templateUrl: '/templates/modalContent.html',
+      controller: 'ModalCtrl',
+      size: 'sm'
+    });
+
+    modalInstance.result.then(function (newList) {
+      List.addList(newList);
+    });
+   }
+
   }
 
   angular
     .module('blocItOff')
-    .controller('ListCtrl', ['$scope', 'List', 'Todo', ListCtrl]);
+    .controller('ListCtrl', ['$scope', '$uibModal', 'List', 'Todo', ListCtrl]);
 })();

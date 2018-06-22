@@ -6,7 +6,7 @@
 					<a href="#" ng-repeat="list in lists" ng-click="setCurrentList(list)">{{ list.$value }}</a>
 				</li>
 	</ul>
-	<button type="button" class="btn btn-dark" ng-click="toggle()">Add a New List</button>
+	<button type="button" class="btn btn-dark" ng-click="open()">Add a New List</button>
 		</div>
 		<div class="col-md-5" id="main">
 			<form class="myList" ng-submit="createList()" ng-show="myList">
