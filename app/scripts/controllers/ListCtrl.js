@@ -1,5 +1,5 @@
 (function() {
-  function ListCtrl($scope, $uibModal, List, Todo) {
+  function ListCtrl($scope, $uibModal, List, Todo, $log) {
     $scope.lists = List.all;
     $scope.myList = false;
     $scope.currentList = null;
@@ -27,10 +27,11 @@
         listId: $scope.currentList.$id,
         createdAt: firebase.database.ServerValue.TIMESTAMP,
         description: $scope.newTodo,
-        status: 'active'
+        status: 'active',
+        done: false
       });
       $scope.newTodo = '';
-      console.log('NEW', newTodo);
+      $scope.newTodo.done = false;
     }
 
     $scope.open = function() {
@@ -43,12 +44,14 @@
 
     modalInstance.result.then(function (newList) {
       List.addList(newList);
+      $scope.newList = '';
+
     });
-   }
+   };
 
   }
 
   angular
     .module('blocItOff')
-    .controller('ListCtrl', ['$scope', '$uibModal', 'List', 'Todo', ListCtrl]);
+    .controller('ListCtrl', ['$scope', '$uibModal', 'List', 'Todo', '$log', ListCtrl]);
 })();

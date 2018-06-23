@@ -1,38 +1,40 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-3" id="sidebar">
-			<ul>
+			<div class="sidebar-header">
+				<a ui-sref="home"><h1>Just To-do It</h1></a>
+			</div>
+			
+			<ul class="sidebar-nav">
 				<li>
 					<a href="#" ng-repeat="list in lists" ng-click="setCurrentList(list)">{{ list.$value }}</a>
 				</li>
-	</ul>
-	<button type="button" class="btn btn-dark" ng-click="open()">Add a New List</button>
-		</div>
-		<div class="col-md-5" id="main">
-			<form class="myList" ng-submit="createList()" ng-show="myList">
-				<input class="form-control" placeholder="Create a List" ng-model="newList">
-
-				<input type="submit" id="submit" value="Submit" />
-				<h4>{{ newList }}</h4>
-			</form>
-
-			<h3 ng-hide="myList">{{ currentList.$value }}</h3>
-		<div ng-repeat="todo in todos">
-			<ul class="todos">
-				<li> {{ todo.description }} | {{ todo.status }}
-				</li>
 			</ul>
+			<button type="button" class="btn btn-dark" ng-click="open()">Add a New List</button>
 		</div>
-			<form id="myTodo" ng-submit="addTodo()">
-	<input class="form-control" placeholder="Add a Todo" ng-model="newTodo">
+		<div class="col-md-9" id="main">
+			<div class="todos-container">
+				<h3>{{ currentList.$value }}</h3>
+				<div>
+					<ul class="todos">
+						<li ng-repeat="todo in todos">
+							<input type="checkbox" ng-model="todo.done"/>
+							<span class="done-{{ todo.done }}">{{ todo.description }}</span>
+						</li>
+					</ul>
+				</div>
 
-	<input type="submit" id="submit" value="Submit" />
-	<h4>{{ newTodo }}</h4>
-</form>
+			</div>
+			<div ng-show="currentList" class="newItem">
+				<form class="form-inline" ng-submit="addTodo()">
+					<input class="form-control" placeholder="Add a Todo" ng-model="newTodo">
+
+					<button type="submit" class="btn btn-primary">Add Item</button>
+				</form>
+			</div>
+		
+			
 		</div>
 	</div>
-	
 
-
-	
 </div>

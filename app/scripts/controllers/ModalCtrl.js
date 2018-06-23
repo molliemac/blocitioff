@@ -1,7 +1,9 @@
 (function() {
   function ModalCtrl($scope, $uibModalInstance){
    $scope.ok = function () {
-    $uibModalInstance.close();
+    var newList = $scope.newList.trim();
+    $scope.newList = '';
+    $uibModalInstance.close(newList);
    };
 
    $scope.cancel = function () {

@@ -1,6 +1,30 @@
 ul li a {
   display: block;
   padding: 10px 0;
+  color: #FFFFFF;
+  border-bottom: 1px solid #FFFFFF;  
+
+}
+
+.sidebar-nav li a:hover {
+    background: #16A085;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+}
+
+.sidebar-nav li {
+	padding: 20px 0 0 15px;
+	vertical-align: middle;
+
+}
+
+ul {
+	padding: 0px !important;
+}
+
+h1 {
+	color: #FFFFFF;
 }
 
 ul {
@@ -8,10 +32,31 @@ ul {
 }
 
 #sidebar {
-	background-color: #eeeeee;
+	background-color: #008080;
 	height: 100vh;
+	padding: 0px !important;
 }
 
-ul.todos {
-	list-style-type: disc;
+ul.todos li {
+	border-bottom: 1px solid #eeeeee;
+	padding: 10px 0;
+}
+
+input[type=checkbox] {
+	transform: scale(1.2);
+	vertical-align: middle;
+}
+
+.btn.btn-primary {
+	background-color: #FFA500;
+}
+
+.done-true {
+  text-decoration: line-through;
+  color: #000000;
+}
+
+.todos-container, .newItem {
+	margin: 0 auto;
+	width: 500px;
 }
