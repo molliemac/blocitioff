@@ -1,54 +1,84 @@
-ul li a {
-  display: block;
-  padding: 10px 0;
-  color: #FFFFFF;
-  border-bottom: 1px solid #FFFFFF;  
-
+#wrapper {
+  padding-left: 250px;
+  transition: all 0.4s ease 0s;
 }
 
-.sidebar-nav li a:hover {
-    background: #16A085;
-    text-decoration: none;
-    font-weight: bold;
-    color: white;
+#sidebar-wrapper {
+  margin-left: -250px;
+  left: 250px;
+  width: 250px;
+  background: #000;
+  position: fixed;
+  height: 100%;
+  overflow-y: auto;
+  z-index: 1000;
+  transition: all 0.4s ease 0s;
+}
+
+#page-content-wrapper {
+  width: 100%;
+}
+
+.sidebar-nav {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .sidebar-nav li {
-	padding: 20px 0 0 15px;
-	vertical-align: middle;
-
+  line-height: 40px;
+  text-indent: 20px;
 }
 
-ul {
-	padding: 0px !important;
+.sidebar-nav li a {
+  color: #999999;
+  display: block;
+  text-decoration: none;
 }
 
-h1 {
-	color: #FFFFFF;
+.sidebar-nav li a:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.2);
+  text-decoration: none;
 }
 
-ul {
-	list-style-type: none;
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+  text-decoration: none;
 }
 
-#sidebar {
-	background-color: #008080;
-	height: 100vh;
-	padding: 0px !important;
+.sidebar-nav > .sidebar-brand {
+  height: 65px;
+  line-height: 60px;
+  font-size: 18px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+  color: #999999;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+  color: #fff;
+  background: none;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+.inset {
+  padding: 20px;
 }
 
 ul.todos li {
-	border-bottom: 1px solid #eeeeee;
-	padding: 10px 0;
+	list-style-type: none;
 }
 
-input[type=checkbox] {
-	transform: scale(1.2);
-	vertical-align: middle;
-}
-
-.btn.btn-primary {
-	background-color: #FFA500;
+form#prioritySelect {
+	display: inline-block;
 }
 
 .done-true {
@@ -59,4 +89,35 @@ input[type=checkbox] {
 .todos-container, .newItem {
 	margin: 0 auto;
 	width: 500px;
+}
+
+@media (max-width:767px) {
+
+#wrapper {
+  padding-left: 0;
+}
+
+#sidebar-wrapper {
+  left: 0;
+}
+
+#wrapper.active {
+  position: relative;
+  left: 250px;
+}
+
+#wrapper.active #sidebar-wrapper {
+  left: 250px;
+  width: 250px;
+  transition: all 0.4s ease 0s;
+}
+
+#menu-toggle {
+  display: inline-block;
+}
+
+.inset {
+  padding: 15px;
+}
+
 }

@@ -13,3 +13,19 @@
     <button class="btn btn-success" type="button" ng-disabled="text === ''" ng-click="ok()">Create Task</button>
     <button class="btn" type="button" ng-click="cancel()">Cancel</button>
 </div>
+
+
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" ui-sref="home">Just To Do It</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle Navigation">
+  	<span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" ng-repeat="list in lists" ng-click="setCurrentList(list)">{{ list.$value }}</a>
+      </li>
+  </ul>
+  <button type="button" class="btn btn-dark" ng-click="open()">Add a New List</button>
+</div>
+</nav>
