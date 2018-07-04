@@ -37,20 +37,20 @@
         createdAt: firebase.database.ServerValue.TIMESTAMP,
         description: $scope.newTodo,
         status: 'active',
-        done: false,
+        completed: false,
         priority: $scope.priority.selectedOption.setting
       });
 
       $scope.newTodo = '';
-      $scope.newTodo.done = false;
+      // $scope.newTodo.done = false;
     };
 
     $scope.todoSort = function() {
       $scope.todos = $filter('orderBy')($scope.todos, 'priority');
     }
 
-    $scope.completedTodo = function() {
-      $scope.todo.done = true;
+    $scope.completed = function(todo) {
+      return todo.completed == true;
     }
 
     $scope.open = function() {
