@@ -1,13 +1,21 @@
+p, h1, h2, h3, a {
+  font-family: 'Montserrat', sans-serif;
+}
+
 #wrapper {
   padding-left: 250px;
   transition: all 0.4s ease 0s;
+  background: rgb(245,108,87);
+  min-height: 100vh;
 }
+
+.welcome-container h1 {}
 
 #sidebar-wrapper {
   margin-left: -250px;
   left: 250px;
   width: 250px;
-  background: #000;
+  background: #231b12;
   position: fixed;
   height: 100%;
   overflow-y: auto;
@@ -31,10 +39,11 @@
 .sidebar-nav li {
   line-height: 40px;
   text-indent: 20px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .sidebar-nav li a {
-  color: #999999;
+  color: #FFFFFF;
   display: block;
   text-decoration: none;
 }
@@ -50,6 +59,11 @@
   text-decoration: none;
 }
 
+.sidebar-nav button {
+  background-color: #F56C57;
+  color: #FFFFFF;
+  margin-top: 30px;
+}
 .sidebar-nav > .sidebar-brand {
   height: 65px;
   line-height: 60px;
@@ -57,7 +71,7 @@
 }
 
 .sidebar-nav > .sidebar-brand a {
-  color: #999999;
+  color: #ffffff;
 }
 
 .sidebar-nav > .sidebar-brand a:hover {
@@ -68,6 +82,14 @@
 #menu-toggle {
   display: none;
 }
+
+.welcome-container {
+  background: rgb(245,108,87);
+  text-align: center;
+  color: #FFFFFF;
+  height: 100%;
+}
+
 
 .inset {
   padding: 20px;

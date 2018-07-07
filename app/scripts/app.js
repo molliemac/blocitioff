@@ -7,10 +7,17 @@
         });
     $stateProvider
         .state('lists', {
+          url: '/list/:listName',
+          controller: 'ListCtrl',
+          templateUrl: '/templates/list.html'
+        }),
+    $stateProvider
+        .state('welcome', {
           url: '/',
           controller: 'ListCtrl',
-          templateUrl: '/templates/home.html'
+          templateUrl: '/templates/welcome.html'
         });
+
   }
 
   angular

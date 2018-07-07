@@ -1,5 +1,5 @@
 (function() {
-  function ListCtrl($scope, $filter, $uibModal, List, Todo, $log) {
+  function ListCtrl($scope, $filter, $uibModal, List, Todo, $log, $stateParams) {
     $scope.lists = List.all;
     $scope.myList = false;
     $scope.currentList = null;
@@ -12,6 +12,8 @@
       ],
       selectedOption: {id: '3', setting: 'Low'}
     };
+
+    $scope.list = $stateParams.listName;
 
     $scope.toggle = function() {
       $scope.myList = !$scope.myList;
@@ -26,7 +28,6 @@
     $scope.setCurrentList = function (list) {
       $scope.currentList = list;
       $scope.todos = Todo.getByListId($scope.currentList.$id);
-      console.log($scope.todos);
     };
 
     $scope.addTodo = function(newTodo) {
@@ -72,5 +73,5 @@
 
   angular
     .module('blocItOff')
-    .controller('ListCtrl', ['$scope', '$filter', '$uibModal', 'List', 'Todo', '$log', ListCtrl]);
+    .controller('ListCtrl', ['$scope', '$filter', '$uibModal', 'List', 'Todo', '$log', '$stateParams', ListCtrl]);
 })();
