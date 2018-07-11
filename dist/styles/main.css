@@ -26,6 +26,10 @@ p, h1, h2, h3, a {
   width: 100%;
 }
 
+select {
+  color: #000000;
+}
+
 .sidebar-nav {
   position: absolute;
   top: 0;
@@ -113,10 +117,6 @@ ul.todos li {
 	list-style-type: none;
   font-family: 'Montserrat', sans-serif;
   color: #FFFFFF;
-}
-
-select {
-  color: #000000 !important;
 }
 
 .btn-primary {
